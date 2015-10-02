@@ -1,0 +1,44 @@
+<div class = "manage-table" ng-controller = "viewCustomer">
+  <table class = "views-table table">
+    <thead>
+      <tr>
+        <th><a href = "" ng-click="sortCompany()">Company</a></th>
+        <th>Customer Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "(key, users) in companies | groupBy: 'field_company'"
+      ng-class-odd="'odd'" ng-class-even="'even'" ng-if="key != 'undefined'">
+        <td><a href = "#/events/{{users[0].uid}}">{{key}}</a></td>
+        <td>
+          <a href = "#/add-customer/{{users[0].uid}}" >+ Customer</a>
+          <table class = "views-table table">
+            <thead>
+              <tr>
+                <th><a href = "" ng-click="sortTable('name')">Username</a></th>
+                <th><a href = "" ng-click="sortTable('field_first_name')">First name</a></th>
+                <th><a href = "" ng-click="sortTable('field_last_name')">Last name</th>
+                <th>Events</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <input type = "textfield" ng-model = "customer" placeholder = "Search...">
+              <tr ng-repeat="user in users | orderBy:predicate:reverse | filter: customer" ng-class-odd="'odd'" ng-class-even="'even'">
+                <td>{{user.name}}</td>
+                <td>{{user.field_first_name}}</td>
+                <td>{{user.field_last_name}}</td>
+                <td>{{user.field_events}}</td>
+                <td>
+                  <a href = "#" title = "Edit">Edit</a>
+                  <a href = "#" title = "Delete">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a href = "#">+ Customer</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

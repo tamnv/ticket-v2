@@ -1,0 +1,72 @@
+<div class = "wrapper-form">
+  <h4>Create new customer</h4>
+  <form class = "form-horizontal" name = "user_form">
+    <!-- Company info -->
+    <div class = "form-group">
+      <label class="col-sm-2 control-label">Company: </label>
+      <div class = "col-sm-4">
+        <input class = "form-control" type = "textfield" name = "company" ng-model = "user.company" required>
+      </div>
+      <span class = "error" ng-show = "user_form.company.$error.required">Required!</span>
+    </div>
+    <!-- First name info -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">First name: </label>
+      <div class = "col-sm-4">
+        <input type = "textfield" class = "form-control" name = "firstname" ng-model = "user.firstname">
+      </div>
+    </div>
+    <!-- Last name info -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">Last name: </label>
+      <div class = "col-sm-4">
+        <input type = "textfield" class = "form-control" name = "lastname" ng-model = "user.lastname">
+      </div>
+    </div>
+    <!-- Username info -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">Username: </label>
+      <div class = "col-sm-4">
+        <input type = "textfield" class = "form-control" name = "username" ng-model = "user.username" required uniquename>
+      </div>
+      <span class = "error" ng-show = "user_form.username.$error.required">Required!</span>
+      <span class="error" ng-show="user_form.username.$error.uniquename">Unique username!</span>
+    </div>
+    <!-- Email address info -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">Email address: </label>
+      <div class="col-sm-4">
+        <input type = "email"
+        uniqueemail
+        class = "form-control"
+        name = "email"
+        ng-model = "user.email"
+        required>
+      </div>
+      <span class = "error" ng-show = "user_form.email.$error.required">Required!</span>
+      <span class="error" ng-show="user_form.email.$error.email">Not valid email!</span>
+      <span class="error" ng-show="user_form.email.$error.uniqueEmail">Unique Email!</span>
+    </div>
+    <!-- Password info -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">Password: </label>
+      <div class = "col-sm-4">
+        <input type = "password" class = "form-control" name = "password" ng-model = "user.password" required >
+      </div>
+      <span class = "error" ng-show = "user_form.password.$error.required">Required!</span>
+    </div>
+    <!-- Confirm password -->
+    <div class = "form-group">
+      <label class = "col-sm-2 control-label">Confirm password: </label>
+      <div class = "col-sm-4">
+        <input type = "password" class = "form-control" name = "password_confirm" ng-model = "user.password_confirm" required confirmpassword = "user.password">
+      </div>
+      <span class = "error" ng-show = "user_form.password_confirm.$error.required">Required!</span>
+      <span class = "error" ng-show = "user_form.password_confirm.$error.confirmpassword">Password not match!</span>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="reset()">RESET</button>
+      <button ng-click="update(user)">SAVE</button>
+    </div>
+  </form>
+</div>

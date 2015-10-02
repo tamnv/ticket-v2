@@ -1,0 +1,21 @@
+<div class = "manage-table" ng-controller = "viewEvents">
+  <table class = "views-table table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Event Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "(key, event) in events" ng-if = "key != 'undefined' && key != ''">
+        <td><a href = "#/types/{{event.nid}}">{{event.field_event_id}}</a></td>
+        <td><a href = "#/types/{{event.nid}}">{{event.title}}</a></td>
+        <td>
+          <a href = "#" title = "Edit">Edit</a>
+          <a href = "#" title = "Delete">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
